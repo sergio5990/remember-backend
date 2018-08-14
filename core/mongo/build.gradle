@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':core:spring')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
+
+    testCompile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
+}
