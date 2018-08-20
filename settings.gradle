@@ -1,6 +1,6 @@
 rootProject.name = 'remember'
 
-include 'domain'
-include 'core:base'
-include 'core:spring'
-include 'core:mongo'
+include ':domain'
+include ':core:base'
+include ':core:spring'
+include ':core:mongo'

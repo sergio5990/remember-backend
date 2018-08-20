@@ -19,6 +19,10 @@ apply plugin: 'io.spring.dependency-management'
 // name
 group = 'com.github.sergio5990.remember'
 version = '${appVersion}'
+jar {
+    baseName = 'remember-jar'
+    version = '${appVersion}'
+}
 
 //repo
 repositories {
@@ -26,6 +30,7 @@ repositories {
 }
 // kotlin
 sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ["-Xjsr305=strict"]
@@ -39,19 +44,24 @@ compileTestKotlin {
     }
 }
 
-subprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-    }
+dependencies {
+    compile project(':core:base')
+    compile project(':core:mongo')
+    compile project(':core:spring')
+    compile project(':domain')
+}
 
+allprojects {
     apply plugin: 'kotlin'
     apply plugin: 'kotlin-spring'
     apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
+    group = 'com.github.sergio5990.remember'
+    version = '${appVersion}'
     sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
     compileKotlin {
         kotlinOptions {
             freeCompilerArgs = ["-Xjsr305=strict"]
