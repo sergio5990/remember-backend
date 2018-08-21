@@ -2,6 +2,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -27,6 +28,7 @@ jar {
 //repo
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 // kotlin
 sourceCompatibility = javaVersion
@@ -77,6 +79,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         testCompile('org.springframework.boot:spring-boot-starter-test')
