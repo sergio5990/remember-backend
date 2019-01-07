@@ -1,6 +1,16 @@
 rootProject.name = 'remember'
 
-include ':domain'
+// core functionality
 include ':core:base'
 include ':core:spring'
 include ':core:mongo'
+
+// domain logic
+include ':domain:note'
+
+
+// api gateway
+include ':gateway:base'
+include ':gateway:dsl'
+include ':gateway:default'
+
