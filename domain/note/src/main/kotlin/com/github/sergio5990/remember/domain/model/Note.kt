@@ -1,5 +1,7 @@
 package com.github.sergio5990.remember.domain.model
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
 @Document(collection = "notes")

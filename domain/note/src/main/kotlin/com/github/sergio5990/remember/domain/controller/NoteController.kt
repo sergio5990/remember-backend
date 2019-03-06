@@ -4,6 +4,7 @@ import com.github.sergio5990.remember.domain.model.Note
 import com.github.sergio5990.remember.domain.model.NoteRequest
 import com.github.sergio5990.remember.domain.model.createInitNote
 import com.github.sergio5990.remember.domain.service.NoteRepository
+import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 

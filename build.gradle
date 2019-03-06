@@ -1,14 +1,14 @@
-// runner
+// core
 buildscript {
-    repositories {
-        mavenCentral()
-        mavenLocal()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-    }
+  repositories {
+    mavenCentral()
+    mavenLocal()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+    classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+  }
 }
 
 // plugins
@@ -21,74 +21,66 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.github.sergio5990.remember'
 version = '${appVersion}'
 jar {
-    baseName = 'remember-jar'
-    version = '${appVersion}'
+  baseName = 'remember-jar'
+  version = '${appVersion}'
 }
 
 //repo
 repositories {
-    mavenCentral()
-    mavenLocal()
+  mavenCentral()
+  mavenLocal()
 }
 // kotlin
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 compileKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "${javaVersion}"
-    }
+  kotlinOptions {
+    freeCompilerArgs = ["-Xjsr305=strict"]
+    jvmTarget = "${javaVersion}"
+  }
 }
 compileTestKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "${javaVersion}"
-    }
+  kotlinOptions {
+    freeCompilerArgs = ["-Xjsr305=strict"]
+    jvmTarget = "${javaVersion}"
+  }
 }
 
 dependencies {
-    compile project(':core:base')
-    compile project(':core:mongo')
-    compile project(':core:spring')
-
-    compile project(':domain:note')
-
-    compile project(':gateway:base')
-    compile project(':gateway:dsl')
-    compile project(':gateway:default')
+  compile project(':dsl:core')
 }
 
 allprojects {
-    apply plugin: 'kotlin'
-    apply plugin: 'kotlin-spring'
-    apply plugin: 'idea'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+  apply plugin: 'kotlin'
+  apply plugin: 'kotlin-spring'
+  apply plugin: 'idea'
+  apply plugin: 'org.springframework.boot'
+  apply plugin: 'io.spring.dependency-management'
 
-    group = 'com.github.sergio5990.remember'
-    version = '${appVersion}'
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    bootJar.enabled = false
-    compileKotlin {
-        kotlinOptions {
-            freeCompilerArgs = ["-Xjsr305=strict"]
-            jvmTarget = "${javaVersion}"
-        }
+  group = 'com.github.sergio5990.remember'
+  version = '${appVersion}'
+  sourceCompatibility = javaVersion
+  targetCompatibility = javaVersion
+  bootJar.enabled = false
+  compileKotlin {
+    kotlinOptions {
+      freeCompilerArgs = ["-Xjsr305=strict"]
+      jvmTarget = "${javaVersion}"
     }
-    compileTestKotlin {
-        kotlinOptions {
-            freeCompilerArgs = ["-Xjsr305=strict"]
-            jvmTarget = "${javaVersion}"
-        }
+  }
+  compileTestKotlin {
+    kotlinOptions {
+      freeCompilerArgs = ["-Xjsr305=strict"]
+      jvmTarget = "${javaVersion}"
     }
+  }
 
-    repositories {
-        mavenCentral()
-        mavenLocal()
-    }
-    dependencies {
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-        testCompile('io.projectreactor:reactor-test')
-    }
+  repositories {
+    mavenCentral()
+    mavenLocal()
+  }
+  dependencies {
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.projectreactor:reactor-test')
+  }
 }
