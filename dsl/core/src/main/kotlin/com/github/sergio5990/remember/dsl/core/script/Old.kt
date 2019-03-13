@@ -1,4 +1,4 @@
-package com.github.sergio5990.remember.dsl.core
+package com.github.sergio5990.remember.dsl.core.script
 
 fun run(args: Array<String>) {
 

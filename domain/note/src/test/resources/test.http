@@ -1,9 +1,0 @@
-POST http://localhost:8080/note/create
-Content-Type: application/json
-
-{
-  "name": "test",
-  "content":"value"
-}
-
-###

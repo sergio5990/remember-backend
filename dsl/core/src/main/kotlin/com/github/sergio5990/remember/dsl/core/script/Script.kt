@@ -1,4 +1,4 @@
-package com.github.sergio5990.remember.dsl.core
+package com.github.sergio5990.remember.dsl.core.script
 
 /*interface Script {
   val type: ScriptType

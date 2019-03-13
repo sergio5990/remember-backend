@@ -1,4 +1,4 @@
-package com.github.sergio5990.remember.dsl.core
+package com.github.sergio5990.remember.dsl.core.script
 
 import javax.script.Compilable
 import javax.script.ScriptEngineManager
@@ -15,6 +15,6 @@ fun loadScripts() {
   val script = classLoader.getResource("/widgets.gateway.static.kts").readText()
 }
 
-class ScriptRunner(){
+class ScriptRunner{
 
 }
