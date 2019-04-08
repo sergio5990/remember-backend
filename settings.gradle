@@ -1,8 +1,9 @@
-rootProject.name = 'remember'
+rootProject.name = "ellipse"
 
-// dsl 
-include ':dsl:core'
-include ':dsl:script'
-include ':dsl:gateway'
+include ":dsl"
+include ":core"
+include ":server"
+include ":client"
+include ":script"
 
 

@@ -1,0 +1,16 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm"
+    id "idea"
+}
+dependencies {
+    //server-netty
+    implementation("io.projectreactor.netty:reactor-netty:$nettyVersion"){
+        exclude group: "io.projectreactor", module: "reactor-core"
+    }
+}
+
+
+
+
+
+

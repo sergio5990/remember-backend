@@ -1,74 +1,77 @@
 // core
 buildscript {
-  repositories {
-    mavenCentral()
-    mavenLocal()
-  }
-  dependencies {
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-  }
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
 }
 
-// plugins
-apply plugin: 'kotlin'
-apply plugin: 'idea'
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.21"
+    id "idea"
+}
+
+idea {
+    project {
+        jdkName = javaVersion
+        languageLevel = javaVersion
+    }
+    module {
+        name = "ellipse"
+    }
+}
 
 // name
-group = 'com.github.sergio5990.remember'
-version = '${appVersion}'
+group = "com.github.sergio5990.ellipse"
+version = appVersion
+
 jar {
-  baseName = 'remember-jar'
-  version = '${appVersion}'
+    baseName = "ellipse-jar"
+    version = appVersion
 }
 
 //repo
 repositories {
-  mavenCentral()
-  mavenLocal()
+    mavenCentral()
+    mavenLocal()
+    jcenter()
 }
+
 // kotlin
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 compileKotlin {
-  kotlinOptions {
-    freeCompilerArgs = ["-Xjsr305=strict"]
-    jvmTarget = "${javaVersion}"
-  }
-}
-compileTestKotlin {
-  kotlinOptions {
-    freeCompilerArgs = ["-Xjsr305=strict"]
-    jvmTarget = "${javaVersion}"
-  }
-}
-
-dependencies {
-  compile project(':dsl:core')
-}
-
-allprojects {
-  apply plugin: 'kotlin'
-  apply plugin: 'idea'
-
-  group = 'com.github.sergio5990.remember'
-  version = '${appVersion}'
-  sourceCompatibility = javaVersion
-  targetCompatibility = javaVersion
-  compileKotlin {
     kotlinOptions {
-      freeCompilerArgs = ["-Xjsr305=strict"]
-      jvmTarget = "${javaVersion}"
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = javaVersion
     }
-  }
-  compileTestKotlin {
-    kotlinOptions {
-      freeCompilerArgs = ["-Xjsr305=strict"]
-      jvmTarget = "${javaVersion}"
-    }
-  }
+}
 
-  repositories {
-    mavenCentral()
-    mavenLocal()
-  }
+subprojects {
+    group = "com.github.sergio5990.ellipse"
+    version = "$appVersion"
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply plugin: "org.jetbrains.kotlin.jvm"
+
+    dependencies {
+        // kotlin
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+        implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+        //rx
+        implementation("io.projectreactor:reactor-core:$reactorVersion")
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
 }

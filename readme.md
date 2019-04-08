@@ -9,4 +9,4 @@ gateway - точка входа для всех пользавателей (ад
 infra - интергация с инфроструктурой (mongo, redis, sql)
 integration - интеграция со стороними системами
 
-package name: com.github.sergio5990.remember.module_name.sub_module_name
+package name: com.github.sergio5990.ellipse.module_name.sub_module_name

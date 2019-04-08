@@ -1,0 +1,16 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm"
+    id "idea"
+}
+dependencies {
+    // kts
+    implementation("org.jetbrains.kotlin:kotlin-script-runtime:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-compiler:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-script-util:$kotlinVersion")
+}
+
+
+
+
+
+
